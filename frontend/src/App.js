@@ -6,16 +6,16 @@ function App() {
   useEffect(() => {
     fetch('http://localhost:3000/products')
       .then(res => res.json())
-      .then(setProducts);
+      .then(data => setProducts(data));
   }, []);
 
   return (
-    <div>
+    <div style={{ padding: '20px' }}>
       <h1>Retail Store</h1>
       <ul>
         {products.map(p => (
           <li key={p.id}>
-            {p.name} - ₹{p.price} - Stock: {p.stock}
+            {p.name} | ₹{p.price} | Stock: {p.stock}
           </li>
         ))}
       </ul>
