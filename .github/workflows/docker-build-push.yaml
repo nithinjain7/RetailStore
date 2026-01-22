@@ -40,5 +40,7 @@ jobs:
     # ---------------- FRONTEND ----------------
     - name: Build & Push Frontend Image
       run: |
-        docker build -t ${{ secrets.DOCKER_USERNAME }}/${{ env.FRONTEND_IMAGE }}:latest ./frontend
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/${{ env.FRONTEND_IMAGE }}:latest \
+          -f frontend/Dockerfile frontend
         docker push ${{ secrets.DOCKER_USERNAME }}/${{ env.FRONTEND_IMAGE }}:latest
+
